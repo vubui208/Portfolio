@@ -1,0 +1,128 @@
+* {
+  box-sizing: border-box; /* Đảm bảo viền và padding được tính trong width */
+  color: white;
+}
+
+body {
+  background-color: black;
+  margin: 0;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px; /* Đặt chiều cao navbar */
+  background-color: black;
+  border-bottom: 3px solid cyan;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  transition: transform 0.3s ease; /* Mượt khi ẩn/hiện */
+  z-index: 1000; /* Giúp navbar luôn nằm trên cùng */
+}
+.text-nav {
+  color: white;
+  list-style: none;
+  font-size: 20px;
+}
+
+.text-nav a {
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+.text-nav a:hover {
+  font-weight: bold;
+  transform: scale(1.1);
+  color: cyan; /
+}
+.links {
+  display: flex;
+  gap: 20px;
+  list-style: none; 
+}
+.container {
+  margin-left: 25%;
+  margin-right:25%;
+  margin-top: 100px;
+
+}
+.container p {
+  font-size: 16px;
+  margin-bottom: 30px;
+  
+}
+footer {
+  height: 70px;
+  margin: 0;
+  border-top: 3px solid cyan;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 30px;
+  align-items: center;
+  gap: 1%;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Tránh cuộn ngang */
+  scroll-behavior: smooth; /* Cuộn mượt */
+}
+
+.navbar.hidden {
+  transform: translateY(-93%); /* Dịch chuyển navbar ra khỏi màn hình */
+}
+
+.sub-container {
+  position: relative;
+  opacity: 0; /* Ban đầu ẩn */
+  transform: translateX(-100%);
+  animation: slideInLeft 1.5s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+  will-change: transform, opacity; /* Tối ưu hóa render */
+}
+
+.sub-container:nth-child(even) {
+  transform: translateX(100%);
+  animation: slideInRight 1.5s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+  will-change: transform, opacity;
+}
+
+i {
+  font-size: 35px;
+}
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+.sub-container:nth-child(odd) {
+  animation-delay: 0.2s;
+}
+
+.sub-container:nth-child(even) {
+  animation-delay: 0.4s;
+}

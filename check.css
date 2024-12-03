@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+.text {
+  position: absolute;
+  font-size: 2rem;
+  font-weight: bold;
+  opacity: 0;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+/* Text from the left */
+.text.left {
+  left: -100%;
+  animation-name: slideInFromLeft;
+  animation-delay: 0.5s;
+}
+
+/* Text from the right */
+.text.right {
+  right: -100%;
+  animation-name: slideInFromRight;
+  animation-delay: 1s;
+}
+
+/* Keyframes for sliding in from the left */
+@keyframes slideInFromLeft {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 1;
+  }
+}
+
+/* Keyframes for sliding in from the right */
+@keyframes slideInFromRight {
+  0% {
+    right: -100%;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    right: 50%;
+    transform: translateX(50%);
+    opacity: 1;
+  }
+}
