@@ -5,7 +5,9 @@
   word-spacing: 2px;
   letter-spacing: 1px;
 }
-
+.center-div {
+  text-align: center;
+}
 body {
   background-color: #171717;
   margin: 0;
