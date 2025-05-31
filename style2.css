@@ -1,9 +1,74 @@
 * {
   color: white;
+  margin: 0;
 }
 body {
   background-color: black;
 }
-.header {
+header {
   text-align: center;
+  font-size: 30px;
+  display: flex;
+  gap: 28%;
+}
+.contact {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.comeback {
+  position: relative;
+
+  overflow: hidden;
+  transform: scale(1.1);
+  padding: 10px;
+  margin: 20px;
+  text-shadow: 0 0 15px rgba(0, 255, 242, 0.5);
+  box-shadow: 0 0 15px rgba(0, 255, 242, 0.3);
+  border: 2px solid #00ffff;
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  transition: 0.5s;
+}
+.comeback a {
+  color: #00ffff;
+  padding: 3px;
+  text-decoration: none;
+}
+.comeback::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, #00ffff33, transparent);
+}
+.comeback-hover::before {
+  left: -100%;
+  transition: all 0.65s ease-in-out;
+}
+.comeback-hover:hover::before {
+  left: 100%;
+}
+.comeback-hover:hover {
+  box-shadow: 1px 1px 7px 5px #ffffff1a;
+}
+.comeback::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  width: 100%;
+  height: 4px;
+  left: 0;
+  transform: scaleX(0);
+  background-color: #00ffff;
+  transform-origin: bottom right;
+  transition: transform 0.5s ease-out;
+}
+.comeback:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+.comeback:hover {
+  background-color: #00ffff33;
 }
